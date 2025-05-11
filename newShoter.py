@@ -19,7 +19,8 @@ bluehp = 3
 
 blacksurf = Surface((1200, 1200))
 blacksurf.fill((0,0,0))
-
+vinsurf = Surface((2200, 2200))
+vinsurf.fill((0,0,0))
 
 class GameSprite(sprite.Sprite):
     def __init__(self, scale, player_image, player_x, player_y, player_speed, player_speedx):
@@ -163,7 +164,7 @@ bluegun = Gun((150, 50), 'gun_up.png', 1100, 420, 20, "blue")
 bluefire = Gunfire((100, 100), 'fire_up.png', -1000, -1000, 20, "blue")
 bluehps = Healthmetr((200, 200), '3heart_blue.png', 0, 470, 20, "blue")
 
-redp = Player((67, 36), 'red_player.png', 200, 200, 20, "red")
+redp = Player((67, 36), 'red_player.png', 870, 200, 20, "red")
 redgun = Gun((150, 50), 'gun_up.png', 1100, 420, 20, "red")
 redfire = Gunfire((100, 100), 'fire_up.png', -1000, -1000, 20, "red")
 redhps = Healthmetr((200, 200), '3heart_red.png', 1000, 470, 20, "red")
@@ -172,6 +173,7 @@ FPS = 80
 firetime1 = time.get_ticks()
 firetime2 = time.get_ticks()
 game = True
+
 r = 0
 d = 0
 while game:
@@ -262,8 +264,30 @@ while game:
 
 
     if bluehp == 0 or redhp == 0:
-        # здесь можно добавить условие конца игры или перезапуск
+        victorysound.play()
+        break
         pass
 
     display.update()
     clock.tick(FPS)
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    if redhp == 0:
+        winer = " Синий"
+        wincolor = (0, 0, 200)
+    else:
+        winer = " Красный"
+        wincolor = (200, 0, 0)
+    score_text = font1.render(f"Победитель -"+ winer, True, wincolor)
+    window.blit(score_text, (10, 10))
+
+
+
+
+
+    display.update()
+    clock.tick(FPS)
+
