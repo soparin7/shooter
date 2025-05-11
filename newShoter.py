@@ -228,7 +228,7 @@ while game:
                 c = 1
                 r = 30
                 firesound.play()
-            if e.key == K_m and bb <= 0:
+            if e.key == K_RCTRL and bb <= 0:
                 firetime2 = time.get_ticks()
                 redfire.update(infr1, infx1, infy1)
                 redfire.reset()
