@@ -283,10 +283,13 @@ while game:
         wincolor = (200, 0, 0)
     score_text = font1.render(f"Победитель -"+ winer, True, wincolor)
     window.blit(score_text, (10, 10))
+    redhps.update("red")
+    redhps.reset()
+    bluehps.update("blue")
+    bluehps.reset()
 
 
-
-
+#https://docs.google.com/presentation/d/1owIap0S0is0U0FFZecdGPnWevePq2Hg7qFZv1jB-ZSs/edit?usp=sharing
 
     display.update()
     clock.tick(FPS)
