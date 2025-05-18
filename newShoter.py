@@ -226,14 +226,14 @@ while game:
                 bluefire.update(infr, infx, infy)
                 bluefire.reset()
                 c = 1
-                r = 30
+                r = 10
                 firesound.play()
             if e.key == K_RCTRL and bb <= 0:
                 firetime2 = time.get_ticks()
                 redfire.update(infr1, infx1, infy1)
                 redfire.reset()
                 c = 1
-                d = 30
+                d = 10
                 firesound.play()
 
 
